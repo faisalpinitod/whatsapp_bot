@@ -19,7 +19,7 @@ This document outlines the workflow for the WhatsApp bot built using Flask and W
 
 Here’s a visual representation of the workflow:
 
-![WhatsApp Bot Workflow Diagram](images/whatsapp_bot_workflow.png)
+![WhatsApp Bot Workflow Diagram](https://drive.google.com/file/d/1g9mq51SfM55NAXMabXDl0tCBk2KA8P-G/view?usp=sharing)
 
 ## Conclusion
 
