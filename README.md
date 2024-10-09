@@ -31,9 +31,9 @@ To test the bot locally, you can use [Ngrok](https://ngrok.com/) to expose your 
    flask run
    ```
 3. In a separate terminal window, run Ngrok to expose your Flask server:
-```bash
-ngrok http 5000
-```
+   ```bash
+   ngrok http 5000
+   ```
 4. Ngrok will generate a public URL (e.g., https://xyz.ngrok.io). Use this URL as the webhook URL in your WATI     account settings or Twilio console for the WhatsApp bot.
 5. Your bot is now publicly accessible, and you can interact with it via WhatsApp.
 
