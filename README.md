@@ -21,6 +21,23 @@ Here’s a visual representation of the workflow:
 
 ![WhatsApp Bot Workflow Diagram](images/whatsapp_bot_workflow.png)
 
+## Running the Bot with Ngrok
+
+To test the bot locally, you can use [Ngrok](https://ngrok.com/) to expose your local server to the internet. Follow these steps to run the bot:
+
+1. Install Ngrok by following the instructions on their [official website](https://ngrok.com/download).
+2. Start your Flask server by running:
+   ```bash
+   flask run
+   ```
+3. In a separate terminal window, run Ngrok to expose your Flask server:
+```bash
+ngrok http 5000
+```
+4. Ngrok will generate a public URL (e.g., https://xyz.ngrok.io). Use this URL as the webhook URL in your WATI     account settings or Twilio console for the WhatsApp bot.
+5. Your bot is now publicly accessible, and you can interact with it via WhatsApp.
+
+
 ## Conclusion
 
 This workflow ensures a smooth interaction between the user and the WhatsApp bot, allowing for efficient data collection and confirmation.
