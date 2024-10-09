@@ -15,16 +15,16 @@ with app.app_context():
 
 # WATI API credentials
 WATI_API_URL = 'https://api.wati.io/v1/messages/send'
-WATI_API_KEY = 'YOUR_WATI_API_KEY' #Wati api key(If we get key we can add here)
+WATI_API_KEY = 'YOUR_WATI_API_KEY'  # Replace with your actual WATI API key
 
-# Function to send a message
+# Function to send a message using WATI API
 def send_message(phone_number, message):
     headers = {
         'Authorization': f'Bearer {WATI_API_KEY}',
         'Content-Type': 'application/json'
     }
     data = {
-        'phone': phone_number,
+        'phone': phone_number,  # WhatsApp phone number in WATI format (without '+' sign)
         'message': message
     }
     response = requests.post(WATI_API_URL, headers=headers, json=data)
@@ -34,32 +34,31 @@ def send_message(phone_number, message):
 @app.route('/webhook', methods=['POST'])
 def webhook():
     incoming_data = request.json
-    phone_number = incoming_data['data']['sender']['phone']
-    message = incoming_data['data']['message']
+    phone_number = incoming_data['data']['sender']['phone']  # User's WhatsApp number
+    message = incoming_data['data']['message']  # Message received
 
-    # Find user by phone number
+    # Find user by phone number in the database
     user = User.query.filter_by(phone_number=phone_number).first()
 
     if message.lower() == 'join':
         # New user joins the conversation
         if user is None:
-            user = User(phone_number=phone_number)
+            user = User(phone_number=phone_number)  # Create a new user in the database
             db.session.add(user)
             db.session.commit()
         send_message(phone_number, "Welcome to our service! What is your name?")
     
     elif user and user.name is None:
         # User provided their name
-        user.name = message
+        user.name = message  # Save the name in the database
         db.session.commit()
         send_message(phone_number, f"Thank you, {message}! What is your email address?")
     
     elif user and user.email is None:
         # User provided their email
-        user.email = message
+        user.email = message  # Save the email in the database
         db.session.commit()
         send_message(phone_number, "Thank you for sharing your information!")
-        
 
     return jsonify({"status": "success"})
 
