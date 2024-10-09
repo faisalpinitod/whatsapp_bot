@@ -24,3 +24,7 @@ Here’s a visual representation of the workflow:
 ## Conclusion
 
 This workflow ensures a smooth interaction between the user and the WhatsApp bot, allowing for efficient data collection and confirmation.
+
+
+This workflow ensures a smooth interaction between the user and the WhatsApp bot, allowing for efficient data collection and confirmation.
+
