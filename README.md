@@ -6,14 +6,18 @@ This document outlines the workflow for the WhatsApp bot built using Flask and W
 
 ## Workflow Steps
 
-1. **Start**: User sends 'join' to WhatsApp bot.
-2. **Welcome Message**: Bot responds with a welcome message.
-3. **Name Prompt**: Bot prompts the user for their name.
-4. **User Inputs Name**: User provides their name.
-5. **Email Prompt**: Bot prompts the user for their email address.
-6. **User Inputs Email**: User provides their email address.
-7. **Data Storage**: Bot stores the information in a database.
-8. **End**: Bot confirms successful data storage to the user.
+1. **Start**: User sends a join code to the WhatsApp bot.
+2. **User Joins**: The bot validates the join code and creates the user profile.
+3. **Greeting**: User sends "hi" to the WhatsApp bot.
+4. **Welcome Message**: The bot responds with a welcome message.
+5. **Name Prompt**: The bot prompts the user for their name.
+6. **User Inputs Name**: The user provides their name.
+7. **Email Prompt**: The bot prompts the user for their email address.
+8. **User Inputs Email**: The user provides their email address.
+9. **Data Storage**: The bot stores the information (name and email) in a database.
+10. **Confirmation**: The bot confirms successful data storage to the user.
+11. **Further Interaction**: The bot responds to any further user messages with appropriate replies, such as "How can I assist you today?" for greetings.
+
 
 ## Diagram
 
